@@ -1,0 +1,75 @@
+@mixin core($mapn, $map){
+
+	@each $num, $col in $map{
+		@if $num != $col{
+			
+			$name: map-get($map,$mapn);
+
+				$var: null;
+				@for $i from 1 through $num{
+					$var: "#{$var}#{$mapn} ";
+				}
+				#{$var}{
+					background-color: #{$col};
+					@if $debug == true{
+						width: #{1200 - ($num * 20)};
+						height: #{1200 - ($num * 20)};
+						padding: 30px;
+					}
+					@if $rgba != false{
+						border: 3px solid #{$col - rgba(68,68,68,$rgba)};
+					}@else{
+						border: 3px solid #{$col - #444};
+					}
+					-webkit-box-sizing: border-box;
+					-moz-box-sizing: border-box;
+					-ms-box-sizing: border-box;
+					-o-box-sizing: border-box;
+					box-sizing: border-box;
+				}
+		}
+	}
+}
+
+// @include core
+
+@each $nam, $varn in $tags{
+	@if $varn != ""{
+		@if $varn != null{
+			@include core($nam, $varn);
+		}
+	}
+}
+
+// no correcte
+//@mixin core($mapn){
+//	$map: "$#{$mapn}";
+//	@each $num, $col in $div{
+//		@if $num != $col{
+//			
+//			$name: map-get($div,$mapn);
+//
+//				$var: null;
+//				@for $i from 1 through $num{
+//					$var: "#{$var}#{$mapn} ";
+//				}
+//				#{$var}{
+//					background-color: #{$col};
+//					@if $debug == true{
+//						width: #{1200 - ($num * 20)};
+//						height: #{1200 - ($num * 20)};
+//						padding: 30px;
+//					}
+//					@if $rgba != false{
+//						border: 3px solid #{$col - rgba(68,68,68,$rgba)};
+//					}@else{
+//						border: 3px solid #{$col - #444};
+//					}
+//					box-sizing: border-box;
+//				}
+//		}
+//	}
+//}
+
+//@include core("div");
+//@include core("span");

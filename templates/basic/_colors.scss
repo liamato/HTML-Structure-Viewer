@@ -1,0 +1,13 @@
+//$div: (1: #000,2: #F00,3: #F0F,5: #FF0);
+	
+$div: (
+	1: rgba(0,0,0, $rgba),
+	2: rgba(255,0,0,$rgba),
+	3: rgba(255,0,255,$rgba),
+	5: rgba(255,255,0,$rgba));
+
+$span: (
+	1: rgba(0,64,0, $rgba),
+	2: rgba(255,64,0,$rgba),
+	3: rgba(255,64,255,$rgba),
+	5: rgba(255,255,64,$rgba));
